@@ -4,11 +4,9 @@ block site_title
     != 'tag-' + page.tag + ' | ' + config.title
 
 block container
-    h1.page_tag
-        i(class='fa fa-tags') &nbsp;
-        != page.tag
     include mixins/post.pug
-        +postList()
+    +one_tag()
+
 
 block pagination
     include mixins/paginator.pug

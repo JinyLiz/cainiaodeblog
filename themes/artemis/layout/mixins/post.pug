@@ -67,26 +67,43 @@ mixin post(item)
             .post-content
                 != item.content
 
-//- Tags Page
+//- Tags Page 标签页
 mixin tagList()
-    .tag-list
+    h2.taglist_title
+         =page.title
+    .tag-cloud-tags!= tagcloud({min_font: 12, max_font: 30, amount: 200, color: true, start_color: '#A4D8FA', end_color: '#0790E8'})
+
+
+//- 标签详情页
+mixin one_tag()
+    h2.page_tag
         i(class='fa fa-tags') &nbsp;
-        if site.tags && site.tags.length
-            - site.tags.each(function (tag) {
-              p.tag-info
-                 a.post-title-link(href=url_for(tag.path))=tag.name
-            - })
+            != page.tag
+    .tag
+        - page.posts.each(function (item) {
+        .post-item
+            .post-info
+                a
+                != full_date(item.date, config.date_format)
+            a.post-title-link(href=url_for(item.path))
+                if item.title
+                    != item.title
+                else
+                    != __('untitled')
+        - })
+
 
 //- Post tags
 mixin tags(item)
     if item.tags && item.tags.length
+
         - item.tags.each(function (tag) {
              a.post-tag-link(href=url_for(tag.path))
                 != tag.name
                 | &nbsp;·&nbsp;
         - })
     else
-        a.post-category-link(href=url_for(theme.GitHub)) #{'coder'}
+        a.post-category-link(href=url_for(theme.GitHub)) #{''}
 
 //- Post categories
 //- mixin categories(item)
