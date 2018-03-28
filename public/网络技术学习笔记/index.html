@@ -1,0 +1,27 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>网络技术学习笔记 | 菜鸟的blog</title><meta name="description" content="网络技术学习笔记 - Liz"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="../favicon.png"><link rel="stylesheet" href="../css/theme.css"><link rel="stylesheet" href="../css/font-awesome.min.css"><link rel="search" type="application/opensearchdescription+xml" href="../atom.xml" title="菜鸟的blog"></head><body><div class="wrap"><header><h1 class="branding"><a href="../index.html" title="菜鸟的blog">菜鸟的blog</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="../index.html" target="_self">主页</a></li><li class="nav-list-item"><a class="nav-list-link" href="../archives" target="_self">目录</a></li><li class="nav-list-item"><a class="nav-list-link" href="../tags" target="_self">标签</a></li><li class="nav-list-item"><a class="nav-list-link" href="../about" target="_self">关于</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">网络技术学习笔记</h1><p class="post-info"><i class="fa fa-calendar">&nbsp;</i>2018-03-20&nbsp;|<i class="fa fa-tags">&nbsp;</i><a class="post-category-link" href="../index.html">coder</a></p><div class="post-content"><h2 id="TCP-IP协议端口"><a href="#TCP-IP协议端口" class="headerlink" title="TCP/IP协议端口"></a>TCP/IP协议端口</h2><p>端口号的范围从0到65535。</p>
+<hr>
+<h4 id="端口分类："><a href="#端口分类：" class="headerlink" title="端口分类："></a>端口分类：</h4><p>按端口号划分：</p>
+<h5 id="公认端口："><a href="#公认端口：" class="headerlink" title="公认端口："></a>公认端口：</h5><p>0～1023，它们紧密帮定于一些服务，通常这些端口的通讯表明了某种服务的协议。</p>
+<ul>
+<li>80端口：HTTP通信；</li>
+<li>21端口：FTP服务；</li>
+<li>23端口：Telnet服务；</li>
+<li>25端口：SMTP服务；</li>
+<li>135端口：RPC服务；</li>
+</ul>
+<h5 id="注册端口："><a href="#注册端口：" class="headerlink" title="注册端口："></a>注册端口：</h5><p>1024～49151，它们松散的绑定于一些服务；</p>
+<h5 id="动态和私有端口："><a href="#动态和私有端口：" class="headerlink" title="动态和私有端口："></a>动态和私有端口：</h5><p>49152～65535，理论上，不应为服务分配这些端口，通常机器从1024开始分配动态端口。</p>
+<hr>
+<hr>
+<p>按协议类型划分：</p>
+<h5 id="TCP端口："><a href="#TCP端口：" class="headerlink" title="TCP端口："></a>TCP端口：</h5><p>即传输控制协议端口，需要在客户端和服务器之间建立连接，这样可以提供可靠的数据传输。常见的包括FTP的21端口，Telnet的23端口，SMTP的25端口，HTTP的80端口。</p>
+<h5 id="UDP端口："><a href="#UDP端口：" class="headerlink" title="UDP端口："></a>UDP端口：</h5><p>即用户数据报协议端口，无需在客户端和服务器端建立连接，安全性得不到保障。常见的DNS的53端口，SNMP（简单网络管理协议）的161端口，QQ使用的8000和4000端口。</p>
+<hr>
+<h2 id="TCP连接"><a href="#TCP连接" class="headerlink" title="TCP连接"></a>TCP连接</h2><p>在TCP/IP协议栈中，源端口号和目的端口号分别与源IP地址和目的IP地址组成套接字（socket），唯一的确定一条TCP连接。</p>
+<hr>
+<p>网络层次：<br><img src="../img/wangluocengci.png" alt=""></p>
+<hr>
+<h2 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h2><p>user datagram protocol，用户数据报协议，是一种无连接的传输层协议。</p>
+<hr>
+<h2 id="socket"><a href="#socket" class="headerlink" title="socket"></a>socket</h2><p>网络上的两个程序通过一个双向的通信连接实现数据的交换，这个连接的一端称为一个socket。<br>socket是对TCP协议的封装。</p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="../linux学习笔记/">prev</a><a class="next" href="../python学习笔记/">next</a></div><div class="copyright"><p>&copy; 2018 <a href="https://jinyliz.github.io">Liz</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div></body></html>

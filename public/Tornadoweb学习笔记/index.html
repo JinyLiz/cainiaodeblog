@@ -1,0 +1,29 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Tornadoweb学习笔记 | 菜鸟的blog</title><meta name="description" content="Tornadoweb学习笔记 - Liz"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="../favicon.png"><link rel="stylesheet" href="../css/theme.css"><link rel="stylesheet" href="../css/font-awesome.min.css"><link rel="search" type="application/opensearchdescription+xml" href="../atom.xml" title="菜鸟的blog"></head><body><div class="wrap"><header><h1 class="branding"><a href="../index.html" title="菜鸟的blog">菜鸟的blog</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="../index.html" target="_self">主页</a></li><li class="nav-list-item"><a class="nav-list-link" href="../archives" target="_self">目录</a></li><li class="nav-list-item"><a class="nav-list-link" href="../tags" target="_self">标签</a></li><li class="nav-list-item"><a class="nav-list-link" href="../about" target="_self">关于</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Tornadoweb学习笔记</h1><p class="post-info"><i class="fa fa-calendar">&nbsp;</i>2018-03-20&nbsp;|<i class="fa fa-tags">&nbsp;</i><a class="post-category-link" href="../index.html">coder</a></p><div class="post-content"><p>相关链接：<br>官方文档：<a href="http://www.tornadoweb.cn/" target="_blank" rel="noopener">http://www.tornadoweb.cn/</a></p>
+<hr>
+<h2 id="Tornado框架设计模型"><a href="#Tornado框架设计模型" class="headerlink" title="Tornado框架设计模型"></a>Tornado框架设计模型</h2><p><img src="../img/Tornadokuangjia.png" alt="Tornado框架设计模型"><br>Tornado框架分为四层：</p>
+<ul>
+<li>最底层的EVENT层：处理IO事件；</li>
+<li>TCP层实现TCP服务器，负责数据传输；</li>
+<li>HTTP/HTTPS层基于HTTP协议实现HTTP服务器和客户端；</li>
+<li>最上层为WEB框架。</li>
+</ul>
+<hr>
+<h2 id="Tornado模块分类"><a href="#Tornado模块分类" class="headerlink" title="Tornado模块分类"></a>Tornado模块分类</h2><h4 id="主要模块"><a href="#主要模块" class="headerlink" title="主要模块"></a>主要模块</h4><ul>
+<li><strong>tornado.web</strong> - FriendFeed 使用的基础 Web 框架，包含了 Tornado 的大多数重要的功能；</li>
+<li><strong>tornado.escape</strong> -XHTML, JSON, URL 的编码/解码方法；</li>
+<li><strong>tornado.options</strong> -命令行和配置文件解析工具，针对服务器环境做了优化</li>
+</ul>
+<hr>
+<h4 id="底层模块"><a href="#底层模块" class="headerlink" title="底层模块"></a>底层模块</h4><ul>
+<li><strong>tornado.httpserver</strong> -服务于web模块的一个非常简单的HTTP服务器的实现；</li>
+<li><strong>tornado.ioloop</strong> - 核心的I/O循环</li>
+</ul>
+<hr>
+<h2 id="tornado-web"><a href="#tornado-web" class="headerlink" title="tornado.web"></a>tornado.web</h2><h4 id="Application"><a href="#Application" class="headerlink" title="Application()"></a>Application()</h4><hr>
+<h2 id="tornado-options"><a href="#tornado-options" class="headerlink" title="tornado.options"></a>tornado.options</h2><h4 id="parse-comand-line"><a href="#parse-comand-line" class="headerlink" title="parse_comand_line()"></a>parse_comand_line()</h4><p>解析命令行函数。</p>
+<h4 id="define"><a href="#define" class="headerlink" title="define()"></a>define()</h4><hr>
+<h2 id="tornado-ioloop"><a href="#tornado-ioloop" class="headerlink" title="tornado.ioloop"></a>tornado.ioloop</h2><h4 id="epoll"><a href="#epoll" class="headerlink" title="epoll"></a>epoll</h4><p><strong>设备驱动：</strong>操作系统和输入输出设备间的粘合剂。驱动负责将操作系统的请求传输，转化为特定物理设备控制器能够理解的命令。<br><strong>I/O多路复用：</strong>监视多个描述符，一旦某个描述符就绪（一般是读就绪或者写就绪），能够通知程序进行相应的读写操作。</p>
+<h5 id="poll机制"><a href="#poll机制" class="headerlink" title="poll机制"></a>poll机制</h5><p>为了减少CPU资源的占用率，在编写驱动函数中添加poll机制。poll（）是linux中的字符设备驱动中的一个函数，作用是把当前的文件指针挂到等待队列。</p>
+<p><strong>poll执行过程：</strong><br>1、将用户传入的pollfd数组拷贝到内核空间；<br>2、查询每个文件描述符对应设备的状态，如果该设备尚未就绪，则在该设备的等待队列中加入一项并继续查询下一设备的状态。查询完所有设备后如果没有一个设备就绪，这时则需要挂起当前进程等待，直到设备就绪或者超时，挂起操作是通过调用schedule_timeout执行的。设备就绪后进程被通知继续运行，这时再次遍历所有设备，以查找就绪设备；<br>3、将获得的数据传送到用户空间并执行释放内存和剥离等待队列等善后工作。</p>
+<p><strong>epoll：</strong><br>是linux内核为处理大批量文件描述符而改进的poll，能显著提高程序在大量并发连接中只有少量活跃的情况下的系统CPU利用率。</p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="../python学习笔记/">prev</a><a class="next" href="../后端学习笔记/">next</a></div><div class="copyright"><p>&copy; 2018 <a href="https://jinyliz.github.io">Liz</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div></body></html>

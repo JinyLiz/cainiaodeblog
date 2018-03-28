@@ -1,0 +1,60 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>linux学习笔记 | 菜鸟的blog</title><meta name="description" content="linux学习笔记 - Liz"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="../favicon.png"><link rel="stylesheet" href="../css/theme.css"><link rel="stylesheet" href="../css/font-awesome.min.css"><link rel="search" type="application/opensearchdescription+xml" href="../atom.xml" title="菜鸟的blog"></head><body><div class="wrap"><header><h1 class="branding"><a href="../index.html" title="菜鸟的blog">菜鸟的blog</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="../index.html" target="_self">主页</a></li><li class="nav-list-item"><a class="nav-list-link" href="../archives" target="_self">目录</a></li><li class="nav-list-item"><a class="nav-list-link" href="../tags" target="_self">标签</a></li><li class="nav-list-item"><a class="nav-list-link" href="../about" target="_self">关于</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">linux学习笔记</h1><p class="post-info"><i class="fa fa-calendar">&nbsp;</i>2018-03-21&nbsp;|<i class="fa fa-tags">&nbsp;</i><a class="post-category-link" href="../index.html">coder</a></p><div class="post-content"><h2 id="linux文件"><a href="#linux文件" class="headerlink" title="linux文件"></a>linux文件</h2><p>linux中所有一切都是文件。<br>linux文件类型：</p>
+<ul>
+<li>普通文件</li>
+<li>目录</li>
+<li>设备文件</li>
+<li>套接口文件</li>
+<li>符号链接文件</li>
+</ul>
+<h2 id="设备"><a href="#设备" class="headerlink" title="设备"></a>设备</h2><p>linux设备分类：</p>
+<ul>
+<li>字符设备</li>
+<li>块设备</li>
+<li>网络设备</li>
+</ul>
+<h4 id="字符设备："><a href="#字符设备：" class="headerlink" title="字符设备："></a>字符设备：</h4><p>指只能一个字节一个字节读写的设备，不能随机读取设备内存中的某一数据，读取数据需要按照先后数据。字符设备是面向流的设备。<br>常见的字符设备：鼠标、键盘、串口、控制台和LED设备等。</p>
+<h4 id="块设备："><a href="#块设备：" class="headerlink" title="块设备："></a>块设备：</h4><p>指可以从设备的任意位置读取一定长度数据的设备。<br>块设备包括：硬盘、磁盘、U盘和SD卡等。</p>
+<h4 id="网络接口："><a href="#网络接口：" class="headerlink" title="网络接口："></a>网络接口：</h4><p>任何网络事务都通过一个接口来进行, 就是说, 一个能够与其他主机交换数据的设备。</p>
+<h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><p>一个具有一定独立功能的程序关于某个数据集合的一次运行活动，是系统进行资源分配和调度运行的基本单位。</p>
+<h4 id="进程VS程序："><a href="#进程VS程序：" class="headerlink" title="进程VS程序："></a>进程VS程序：</h4><ul>
+<li>进程是程序的一次执行过程，是动态概念；程序是一组有序的指令集和，是静态概念；</li>
+<li>不同的进程可以执行同一个程序；</li>
+</ul>
+<h4 id="进程的声明周期："><a href="#进程的声明周期：" class="headerlink" title="进程的声明周期："></a>进程的声明周期：</h4><p>当操作系统要完成某个任务时，它会创建一个进程。当进程完成任务之后，系统就会撤销这个进程，收回它所占用的资源。从创建到撤销的时间段就是进程的生命期。</p>
+<h4 id="进程的组成："><a href="#进程的组成：" class="headerlink" title="进程的组成："></a>进程的组成：</h4><p>从结构上讲，每个进程都由程序、数据和一个进程控制块组成。</p>
+<h4 id="进程控制块："><a href="#进程控制块：" class="headerlink" title="进程控制块："></a>进程控制块：</h4><p>Process Control Block，PCB。在linux中task_struct结构体即是PCB。PCB是进程的唯一标识。<br>PCB包含信息：</p>
+<ul>
+<li>进程状态（state）</li>
+<li>进程标识信息（uid、gid）</li>
+<li>定时器（time）</li>
+<li>用户可见寄存器、控制状态寄存器、栈指针等</li>
+</ul>
+<h4 id="线程："><a href="#线程：" class="headerlink" title="线程："></a>线程：</h4><p>有时被称为轻量级进程，是程序执行流的最小单元。一个标准的线程由线程ID，当前指令指针(PC），寄存器集合和堆栈组成。</p>
+<hr>
+<h2 id="进程通信"><a href="#进程通信" class="headerlink" title="进程通信"></a>进程通信</h2><hr>
+<h2 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构"></a>存储结构</h2><p>数据的存储结构是指数据的逻辑结构在计算机中的表示。数据元素之间的关系有两种不同的表示方法：顺序映象和非顺序映象，并由此得到两种不同的存储结构：顺序存储结构和链式存储结构。</p>
+<ul>
+<li>顺序存储结构：逻辑上相邻的结点存储在物理位置相邻的存储单元里；通常借助数组来实现；</li>
+<li>链式存储结构：不要求逻辑上相邻的结点存储在物理位置相邻的存储单元里；通常借助指针来实现。</li>
+</ul>
+<h4 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h4><p>是一种物理存储单元上非连续、非顺序的存储结构。</p>
+<hr>
+<h2 id="socket"><a href="#socket" class="headerlink" title="socket"></a>socket</h2><h4 id="地址族"><a href="#地址族" class="headerlink" title="地址族"></a>地址族</h4><p>address family，地址划分的标准集合，表示底层是使用哪种通信协议来递交数据的。如AF——INET使用TCP/IPv4；AF——INET6使用TCP/IPv6；AF——LOCAL或者AF——UNIX值本地通信。</p>
+<h4 id="sin-family"><a href="#sin-family" class="headerlink" title="sin_family"></a>sin_family</h4><p>协议族</p>
+<hr>
+<h4 id="一些系统调用"><a href="#一些系统调用" class="headerlink" title="一些系统调用"></a>一些系统调用</h4><h5 id="socket（）函数"><a href="#socket（）函数" class="headerlink" title="socket（）函数"></a>socket（）函数</h5><p>用户根据指定的地址族、数据类型和协议来分配一个套接口的 描述字 及其 所用的资源。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int socket（int af，int type，int protocol）</span><br></pre></td></tr></table></figure></p>
+<p><strong>af：</strong>目前仅支持AF——INET格式；<br><strong>type：</strong>常用的有SOCK_STREAM(TCP)、SOCK_DGRAM(UDP)、SOCK_RAW、SOCK_PACKET、SOCK_SEQPACKET；<br><strong>protocol：</strong>指定的协议,如调用者不想指定，可用0；</p>
+<h5 id="bind（）函数"><a href="#bind（）函数" class="headerlink" title="bind（）函数"></a>bind（）函数</h5><p>bind()函数可以帮助你指定一个套接字使用的端口。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int bind(int socked, struct sockaddr *my_addr, int addrlen);</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><strong>sockfd：</strong>由socket（）函数返回的套接字描述符；</li>
+<li><strong>my_addr：</strong>指向struct sockaddr的指针；</li>
+<li><strong>addrlen：</strong>可以设置为sizeof（struct sockaddr）</li>
+</ul>
+<hr>
+<p><strong>sockaddr:</strong><br>sockaddr在头文件#include&lt;sys/socket.h&gt;中定义，sa_data把目标地址和端口信息混在一起了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">struct sockaddr &#123;</span><br><span class="line">    sa_family_t sin_family;</span><br><span class="line">    char sa_data[14];</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure></p>
+<p>sockaddr常用于bind、connect、recvfrom、sendto等函数的参数，指明地址信息，是一种通用的套接字地址。</p>
+<hr>
+<p><strong>sockaddr_in:</strong><br>sockaddr_in在头文件#include &lt;neine/in.h&gt;或#include&lt;arpa/inet.h&gt;中定义，该结构体解决了sockaddr的缺陷，把port和addr 分开储存在两个变量中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">struct sockaddr_in&#123;</span><br><span class="line">    sa_family_t     sin_family;</span><br><span class="line">    uint16_t        sin_port;</span><br><span class="line">    struct in_addr  sin_addr;</span><br><span class="line">    char            sin_zero[8];</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>sockaddr_in 是internet环境下套接字的地址形式。所以在网络编程中我们会对sockaddr_in结构体进行操作，使用sockaddr_in来建立所需的信息，最后使用类型转化就可以了。一般先把sockaddr_in变量赋值后，强制类型转换后传入用sockaddr做参数的函数：sockaddr_in用于socket定义和赋值；sockaddr用于函数参数。</p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="../股票学习笔记/">prev</a><a class="next" href="../网络技术学习笔记/">next</a></div><div class="copyright"><p>&copy; 2018 <a href="https://jinyliz.github.io">Liz</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div></body></html>
