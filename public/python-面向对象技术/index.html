@@ -1,0 +1,18 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>python 面向对象技术 | 菜鸟的blog</title><meta name="description" content="python 面向对象技术 - Liz"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="../favicon.png"><link rel="stylesheet" href="../css/theme.css"><link rel="stylesheet" href="../css/font-awesome.min.css"><link rel="search" type="application/opensearchdescription+xml" href="../atom.xml" title="菜鸟的blog"></head><body><div class="wrap"><header><h1 class="branding"><a href="../index.html" title="菜鸟的blog">菜鸟的blog</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="../index.html" target="_self">主页</a></li><li class="nav-list-item"><a class="nav-list-link" href="../archives" target="_self">目录</a></li><li class="nav-list-item"><a class="nav-list-link" href="../tags" target="_self">标签</a></li><li class="nav-list-item"><a class="nav-list-link" href="../about" target="_self">关于</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">python 面向对象技术</h1><p class="post-info"><i class="fa fa-calendar">&nbsp;</i>2018-03-29&nbsp;|<i class="fa fa-tags">&nbsp;</i><a class="post-tag-link" href="../tags/开发/">开发&nbsp;·&nbsp;</a><a class="post-tag-link" href="../tags/后端/">后端&nbsp;·&nbsp;</a><a class="post-tag-link" href="../tags/python/">python&nbsp;·&nbsp;</a></p><div class="post-content"><h2 id="类和实例"><a href="#类和实例" class="headerlink" title="类和实例"></a>类和实例</h2><p>类是抽象的模板，实例是根据类创建出来的一个具体的对象。各个实例拥有的数据都互相独立，互不影响。</p>
+<hr>
+<p><strong>举例：</strong></p>
+<hr>
+<p>类Student：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">class Student（object）：</span><br><span class="line">  pass</span><br></pre></td></tr></table></figure></p>
+<p>实例bart：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bart=Student（）</span><br></pre></td></tr></table></figure></p>
+<p>给实例变量绑定属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bart.name=&apos;Bart Simpson&apos;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>方法是与实例绑定的函数，和普通函数不同，方法可以直接访问实例的数据。</p>
+<h2 id="类的继承"><a href="#类的继承" class="headerlink" title="类的继承"></a>类的继承</h2><p>实现代码重用的方法之一是通过继承机制。<br><strong>继承语法：</strong> class 派生类名（基类名）：</p>
+<p>在python中继承的特点：</p>
+<ul>
+<li>在继承中基类的构造（<strong>init</strong>()方法）不会被自动调用，它需要在其派生类的构造中亲自专门调用；</li>
+<li>在调用基类的方法时，需要加上基类的类名前缀，且需要带上self参数变量。区别在于类中调用普通函数时并不需要带上self参数；</li>
+<li>Python总是首先查找对应类型的方法，如果它不能在派生类中找到对应的方法，它才开始到基类中逐个查找。（先在本类中查找调用的方法，找不到才去基类中找）；</li>
+<li>如果在继承元组中列了一个以上的类，那么它就被称作”多重继承” 。</li>
+</ul>
+<h4 id="多重继承"><a href="#多重继承" class="headerlink" title="多重继承"></a>多重继承</h4></div></article></div></main><footer><div class="paginator"><a class="next" href="../python变量/">next</a></div><div class="copyright"><p>&copy; 2018 <a href="https://jinyliz.github.io">Liz</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div></body></html>

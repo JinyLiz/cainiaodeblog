@@ -2,6 +2,9 @@
 title: Tornadoweb学习笔记
 date: 2018-03-20 10:46:26
 tags:
+    - 开发
+    - 后端
+    - python
 ---
 
 相关链接：
@@ -31,6 +34,9 @@ Tornado框架分为四层：
 ## tornado.web
 #### Application()
 
+##### RequestHandler
+Base class for HTTP request handlers.
+
 
 
 *****
@@ -56,6 +62,9 @@ Tornado框架分为四层：
 **epoll：**
 是linux内核为处理大批量文件描述符而改进的poll，能显著提高程序在大量并发连接中只有少量活跃的情况下的系统CPU利用率。
 
+##其它
+####CSRF
+cross-site request forgery 跨站请求伪造
 
 
 

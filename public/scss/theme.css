@@ -988,6 +988,28 @@ pre {
   pre .strong {
     font-weight: bold; }
 
+.tag {
+  max-width: 500px;
+  margin: 5em 0; }
+  .tag .post-item {
+    padding: 2px 0 0 50px;
+    overflow: hidden; }
+  .tag .post-time,
+  .tag .post-title-link {
+    font-size: 1rem; }
+  .tag .post-title-link {
+    display: block;
+    margin-left: 125px;
+    color: #42b983;
+    word-wrap: break-word; }
+    .tag .post-title-link:hover {
+      border-bottom: 0;
+      color: #267B54; }
+  .tag .post-info {
+    float: left;
+    width: 125px;
+    color: #7f8c8d; }
+
 @font-face {
   font-family: 'sourcesanspro';
   src: url("../font/sourcesanspro.woff2") format("woff2"), url("../font/sourcesanspro.woff") format("woff");
